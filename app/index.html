@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platinum Roadmap v1: all 55 GTA VI trophies — checklist, missable flags, spoiler-safe guides</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23ff2e88'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Georgia'%3E55%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="top">
+  <div>
+    <h1>GTA VI — Platinum Roadmap</h1>
+    <p class="subtitle">All 55 trophies: 1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online · 1 possibly missable. Every guide in our own words, with its source cited.</p>
+  </div>
+  <div id="progressBox" aria-live="polite">
+    <p id="progressText">0 of 55 earned</p>
+    <div id="progressBar"><div id="progressFill"></div></div>
+    <p id="progressGrades">Platinum 0/1 · Gold 0/2 · Silver 0/6 · Bronze 0/46</p>
+  </div>
+</header>
+
+<section id="roadmap" aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum</h2>
+  <p class="sectionNote">Do it in this order. Story first, then stranger strands, then collectibles, then activities — and the 100% checklist last, because it counts everything else.</p>
+  <ol id="roadmapStages"></ol>
+</section>
+
+<aside id="missable" aria-label="Missable trophies">
+  <h2>Missable trophies: 1 (possibly)</h2>
+  <p id="missableText"></p>
+  <p class="sectionNote">Story missions cannot be replayed, so use the game's manual save slots before big missions and before Chapter 1 ends.</p>
+</aside>
+
+<div id="controls">
+  <label>Search <input id="search" type="search" placeholder="Search a trophy or guide…"></label>
+  <label>Kind <select id="kindFilter">
+    <option value="all">All kinds</option>
+    <option value="story">Story</option>
+    <option value="missable">Missable</option>
+    <option value="collectibles">Collectibles</option>
+    <option value="activities">Activities</option>
+    <option value="completion">Completion</option>
+    <option value="online">Online</option>
+  </select></label>
+  <label>Grade <select id="gradeFilter">
+    <option value="all">All grades</option>
+    <option value="platinum">Platinum</option>
+    <option value="gold">Gold</option>
+    <option value="silver">Silver</option>
+    <option value="bronze">Bronze</option>
+  </select></label>
+  <label class="check"><input id="unearnedOnly" type="checkbox"> Unearned only</label>
+  <label class="check"><input id="spoilerToggle" type="checkbox" checked> Spoiler-safe: hide story trophies until earned</label>
+  <button id="exportBtn" type="button">Export progress</button>
+  <label class="importBtn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  <button id="resetBtn" type="button">Reset</button>
+</div>
+
+<p id="emptyNote" hidden>No trophies match these filters. There are no online trophies — all 55 are earnable solo, offline.</p>
+
+<main id="trophyList" aria-label="Trophy checklist"></main>
+
+<footer id="sources">
+  <h2>Sources</h2>
+  <p>Official names, descriptions and grades: the PlayStation trophy list as listed by Exophase and PSNProfiles (the two agree on all 55). Counts and the missable warning: <a href="https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/">KeenGamer — GTA 6 Trophy Guide &amp; Platinum Roadmap</a>. Cross-checks: <a href="https://www.gtavibes.com/guides/gta-6-trophy-list-achievements">GTAVibes trophy list</a>, <a href="https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/">EGamers trophy list</a>, <a href="https://www.gtavicecityhub.com/achievements">GTAViceCityHub achievements</a>. Every guide above is written in our own words; the official names and descriptions are quoted as PlayStation publishes them.</p>
+  <p class="judgeNote">Judge note: the screenshots show the checklist with a guide open, the roadmap, the missable flag, and the spoiler setting hiding story trophies until earned. The app works fully offline — it loads only its own files.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

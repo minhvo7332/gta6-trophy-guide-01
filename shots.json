@@ -1,0 +1,6 @@
+[
+  { "file": "1-cover.jpg", "path": "/", "note": "Header + 12/55 progress, full 5-stage roadmap, missable panel, spoiler off, guide open" },
+  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "note": "Grade filter Silver: all 6 silver trophies + missable panel + sources" },
+  { "file": "3-spoiler.jpg", "path": "/", "note": "Spoiler-safe on: hidden story trophies masked until earned" },
+  { "file": "4-missable.jpg", "path": "/", "kind": "missable", "note": "Kind filter Missable: Positive Mental Attitude with guide + source open" }
+]

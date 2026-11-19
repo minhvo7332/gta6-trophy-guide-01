@@ -1,0 +1,59 @@
+/* GTA VI trophy guide: dark Vice City neon, readable at a glance. No web fonts, no images, no network. */
+* { box-sizing: border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; margin: 0; color: #f2e9ff; background: #14091f; }
+header#top { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; padding: 20px 28px; background: linear-gradient(120deg, #2a0a4a, #0d2b45 60%, #123f2e); border-bottom: 3px solid #ff2e88; }
+h1 { margin: 0 0 6px; font-size: 34px; letter-spacing: 0.5px; }
+.subtitle { margin: 0; max-width: 640px; color: #d9c8f5; font-size: 15px; line-height: 1.45; }
+#progressBox { min-width: 280px; }
+#progressText { margin: 0 0 6px; font-size: 20px; font-weight: bold; }
+#progressBar { height: 14px; background: #3a2a55; border-radius: 7px; overflow: hidden; }
+#progressFill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff2e88, #ffb347); transition: width 0.2s; }
+#progressGrades { margin: 6px 0 0; font-size: 13px; color: #d9c8f5; }
+section#roadmap, aside#missable { margin: 18px 28px; padding: 14px 18px; border-radius: 10px; }
+section#roadmap { background: #1e1032; border: 1px solid #5b3a8c; }
+aside#missable { background: #33131f; border: 2px solid #ff2e88; }
+h2 { margin: 0 0 8px; font-size: 21px; }
+.sectionNote { margin: 4px 0 0; color: #d9c8f5; font-size: 14px; line-height: 1.45; }
+#roadmapStages { margin: 10px 0 0; padding-left: 22px; }
+#roadmapStages li { margin-bottom: 10px; line-height: 1.45; }
+#roadmapStages strong { color: #ffb347; }
+.stageCount { color: #b9a8d9; font-size: 13px; }
+.stageTrophies { color: #e8ddff; font-size: 14px; }
+#missableText { margin: 0; font-size: 15px; line-height: 1.5; }
+#controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0 28px 14px; padding: 12px 14px; background: #1e1032; border: 1px solid #5b3a8c; border-radius: 10px; }
+#controls label { font-size: 14px; }
+#controls input[type="search"] { width: 210px; padding: 6px 8px; border-radius: 6px; border: 1px solid #7a5aa8; background: #fff; color: #222; font-size: 14px; }
+#controls select { padding: 6px; border-radius: 6px; font-size: 14px; }
+#controls button, .importBtn { padding: 7px 12px; border-radius: 6px; border: none; background: #ff2e88; color: #fff; font-size: 14px; cursor: pointer; }
+.importBtn input { display: none; }
+#resetBtn { background: #5b3a8c; }
+#emptyNote { margin: 0 28px 14px; padding: 12px; background: #1e1032; border: 1px solid #5b3a8c; border-radius: 8px; }
+main#trophyList { margin: 0 28px 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 12px; }
+article.trophy { background: #221239; border: 1px solid #4a2d73; border-radius: 10px; padding: 12px 14px; }
+article.trophy.earned { border-color: #2ecc71; background: #122b1c; }
+article.trophy.missableCard { border-color: #ff2e88; }
+.trophyHead { display: flex; gap: 10px; align-items: flex-start; }
+.trophyHead input { width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0; }
+.trophyName { font-size: 17px; font-weight: bold; line-height: 1.25; }
+.trophyDesc { margin: 4px 0 0; color: #cfc0ea; font-size: 13.5px; font-style: italic; line-height: 1.4; }
+.badgeRow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge { font-size: 11.5px; font-weight: bold; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.4px; }
+.badge.platinum { background: #e8f4ff; color: #123; }
+.badge.gold { background: #ffd700; color: #422d00; }
+.badge.silver { background: #d7d7d7; color: #222; }
+.badge.bronze { background: #cd7f32; color: #fff; }
+.badge.kind { background: #3a2a55; color: #e8ddff; border: 1px solid #7a5aa8; }
+.badge.missable { background: #ff2e88; color: #fff; }
+.badge.hiddenTag { background: #0d2b45; color: #bfe3ff; border: 1px solid #2e6ea8; }
+.guideBtn { margin-top: 10px; padding: 6px 10px; border-radius: 6px; border: 1px solid #7a5aa8; background: transparent; color: #ffb347; font-size: 13.5px; cursor: pointer; }
+.guideBox { margin-top: 10px; padding: 10px; background: #14091f; border-left: 3px solid #ffb347; border-radius: 0 6px 6px 0; }
+.guideBox p { margin: 0 0 8px; font-size: 14.5px; line-height: 1.55; }
+.guideBox .source { margin: 0; font-size: 12.5px; color: #b9a8d9; }
+.spoilerMask { color: #b9a8d9; font-style: italic; }
+footer#sources { margin: 0 28px 28px; padding: 14px 18px; background: #1e1032; border: 1px solid #5b3a8c; border-radius: 10px; font-size: 14px; line-height: 1.55; }
+footer#sources a { color: #7fd4ff; }
+.judgeNote { color: #ffb347; }
+@media (max-width: 700px) {
+  header#top, section#roadmap, aside#missable, #controls, main#trophyList, footer#sources { margin-left: 12px; margin-right: 12px; }
+  h1 { font-size: 26px; }
+}
