@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Platinum Roadmap v1: all 55 GTA VI trophies — checklist, missable flags, spoiler-safe guides</title>
+<title>Platinum Roadmap v2: all 55 GTA VI trophies — dashboard, difficulty + time, missable warnings, phased roadmap</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23ff2e88'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Georgia'%3E55%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,7 @@
 <header id="top">
   <div>
     <h1>GTA VI — Platinum Roadmap</h1>
-    <p class="subtitle">All 55 trophies: 1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online · 1 possibly missable. Every guide in our own words, with its source cited.</p>
+    <p class="subtitle">All 55 trophies: 1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online · 1 possibly missable. Platinum ≈ 200 hours, difficulty 4/10 (PowerPyx &amp; KeenGamer). Every guide in our own words, with its source cited.</p>
   </div>
   <div id="progressBox" aria-live="polite">
     <p id="progressText">0 of 55 earned</p>
@@ -20,16 +20,33 @@
   </div>
 </header>
 
+<section id="dashboard" aria-label="Progress dashboard">
+  <div class="dashCell dashBig">
+    <p class="dashLabel">Platinum progress</p>
+    <p class="dashPct"><span id="dashPercent">0%</span> <span id="dashCount">0 / 55</span></p>
+    <div class="dashBar"><div id="dashFill"></div></div>
+    <p class="dashHours" id="dashHours">≈ 200 h to the platinum · 0 h banked</p>
+  </div>
+  <div class="dashCell">
+    <p class="dashLabel">Trophies by grade</p>
+    <div id="gradeBars"></div>
+  </div>
+  <div class="dashCell">
+    <p class="dashLabel">Next 5 easiest unearned</p>
+    <ol id="nextFive"></ol>
+  </div>
+</section>
+
 <section id="roadmap" aria-label="Roadmap to the platinum">
-  <h2>Roadmap to the platinum</h2>
-  <p class="sectionNote">Do it in this order. Story first, then stranger strands, then collectibles, then activities — and the 100% checklist last, because it counts everything else.</p>
-  <ol id="roadmapStages"></ol>
+  <h2>Roadmap to the platinum — 3 phases</h2>
+  <p class="sectionNote">Do it in this order. Phase 1 is the story (60–80 h). Phase 2 is the open world after the credits (≈ 100 h, most of the platinum). Phase 3 is the money-and-property cleanup (≈ 10 h), ending with the 100% checklist and the platinum. Click a phase to see only its trophies.</p>
+  <div id="phaseCards"></div>
 </section>
 
 <aside id="missable" aria-label="Missable trophies">
   <h2>Missable trophies: 1 (possibly)</h2>
   <p id="missableText"></p>
-  <p class="sectionNote">Story missions cannot be replayed, so use the game's manual save slots before big missions and before Chapter 1 ends.</p>
+  <p class="sectionNote">Story missions cannot be replayed, so use the game's manual save slots before big missions and before Chapter 1 ends. Every trophy card's guide now has its own missable check — exactly when it can be missed and how to avoid it.</p>
 </aside>
 
 <div id="controls">
@@ -43,12 +60,24 @@
     <option value="completion">Completion</option>
     <option value="online">Online</option>
   </select></label>
+  <label>Phase <select id="phaseFilter">
+    <option value="all">All phases</option>
+    <option value="1">Phase 1 — Story</option>
+    <option value="2">Phase 2 — Open world</option>
+    <option value="3">Phase 3 — Cleanup</option>
+  </select></label>
   <label>Grade <select id="gradeFilter">
     <option value="all">All grades</option>
     <option value="platinum">Platinum</option>
     <option value="gold">Gold</option>
     <option value="silver">Silver</option>
     <option value="bronze">Bronze</option>
+  </select></label>
+  <label>Order <select id="sortSelect">
+    <option value="roadmap">Roadmap order</option>
+    <option value="easiest">Easiest first</option>
+    <option value="fastest">Fastest to platinum</option>
+    <option value="hardest">Hardest first</option>
   </select></label>
   <label class="check"><input id="unearnedOnly" type="checkbox"> Unearned only</label>
   <label class="check"><input id="spoilerToggle" type="checkbox" checked> Spoiler-safe: hide story trophies until earned</label>
@@ -63,8 +92,8 @@
 
 <footer id="sources">
   <h2>Sources</h2>
-  <p>Official names, descriptions and grades: the PlayStation trophy list as listed by Exophase and PSNProfiles (the two agree on all 55). Counts and the missable warning: <a href="https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/">KeenGamer — GTA 6 Trophy Guide &amp; Platinum Roadmap</a>. Cross-checks: <a href="https://www.gtavibes.com/guides/gta-6-trophy-list-achievements">GTAVibes trophy list</a>, <a href="https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/">EGamers trophy list</a>, <a href="https://www.gtavicecityhub.com/achievements">GTAViceCityHub achievements</a>. Every guide above is written in our own words; the official names and descriptions are quoted as PlayStation publishes them.</p>
-  <p class="judgeNote">Judge note: the screenshots show the checklist with a guide open, the roadmap, the missable flag, and the spoiler setting hiding story trophies until earned. The app works fully offline — it loads only its own files.</p>
+  <p>Official names, descriptions and grades: the PlayStation trophy list as listed by Exophase and PSNProfiles (the two agree on all 55). Difficulty and time: the platinum is rated 4/10 and ≈ 200 hours, story 60–80 h, the 100% checklist ≈ 100 h, cleanup ≈ 10 h — <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a> and <a href="https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/">KeenGamer — GTA 6 Trophy Guide &amp; Platinum Roadmap</a>; each trophy's difficulty (1–5) and hours are this guide's own estimates built from those totals. The one possibly missable trophy (Positive Mental Attitude, Chapter 1 meditation spot) is flagged by PowerPyx. Cross-checks: <a href="https://www.gtavibes.com/guides/gta-6-trophy-list-achievements">GTAVibes trophy list</a>, <a href="https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/">EGamers trophy list</a>, <a href="https://www.gtavicecityhub.com/achievements">GTAViceCityHub achievements</a>. Every guide above is written in our own words; the official names and descriptions are quoted as PlayStation publishes them.</p>
+  <p class="judgeNote">Judge note: the dashboard above shows percent complete, trophies by grade, and the next 5 easiest unearned; every trophy carries a difficulty (1–5) and time estimate; every guide has a missable check; the roadmap is 3 phases with their trophy lists. The app works fully offline — it loads only its own files.</p>
 </footer>
 
 <script type="module" src="app.js"></script>

@@ -58,6 +58,12 @@ createServer((request, response) => {
     'content-length': size,
     'cache-control': 'no-store',
   });
+  // A HEAD request gets the headers (type, length) with no body, so link
+  // checkers and screenshot tooling can probe the guide without fetching it.
+  if (request.method === 'HEAD') {
+    response.end();
+    return;
+  }
   createReadStream(file).pipe(response);
 }).listen(port, '127.0.0.1', () => {
   console.log(`app/ is on http://localhost:${port}`);

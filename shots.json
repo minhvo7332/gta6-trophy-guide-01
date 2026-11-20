@@ -1,6 +1,1 @@
-[
-  { "file": "1-cover.jpg", "path": "/", "note": "Header + 12/55 progress, full 5-stage roadmap, missable panel, spoiler off, guide open" },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "note": "Grade filter Silver: all 6 silver trophies + missable panel + sources" },
-  { "file": "3-spoiler.jpg", "path": "/", "note": "Spoiler-safe on: hidden story trophies masked until earned" },
-  { "file": "4-missable.jpg", "path": "/", "kind": "missable", "note": "Kind filter Missable: Positive Mental Attitude with guide + source open" }
-]
+[{"file":"1-cover.jpg","note":"Dashboard (percent, by-grade bars, next 5 easiest) + 3-phase roadmap + guide open with missable check, 12/55 earned","path":"/"},{"file":"2-fastest.jpg","note":"Fastest-to-platinum sort: Route # badges, difficulty stars + time on every card","path":"/","sort":"fastest"},{"file":"3-missable.jpg","kind":"missable","note":"Kind filter Missable: Positive Mental Attitude with guide + missable detail panel open","path":"/"},{"file":"4-spoiler.jpg","kind":"story","note":"Spoiler-safe on, story filter: earned story trophies revealed, unearned hidden ones masked until earned","path":"/"}]

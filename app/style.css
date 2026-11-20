@@ -1,4 +1,4 @@
-/* GTA VI trophy guide: dark Vice City neon, readable at a glance. No web fonts, no images, no network. */
+/* GTA VI trophy guide v2: dark Vice City neon, readable at a glance. No web fonts, no images, no network. */
 * { box-sizing: border-box; }
 body { font-family: Georgia, 'Times New Roman', serif; margin: 0; color: #f2e9ff; background: #14091f; }
 header#top { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; padding: 20px 28px; background: linear-gradient(120deg, #2a0a4a, #0d2b45 60%, #123f2e); border-bottom: 3px solid #ff2e88; }
@@ -9,16 +9,38 @@ h1 { margin: 0 0 6px; font-size: 34px; letter-spacing: 0.5px; }
 #progressBar { height: 14px; background: #3a2a55; border-radius: 7px; overflow: hidden; }
 #progressFill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff2e88, #ffb347); transition: width 0.2s; }
 #progressGrades { margin: 6px 0 0; font-size: 13px; color: #d9c8f5; }
+/* Dashboard: percent + by-grade bars + next 5 easiest, one strip under the header. */
+section#dashboard { display: grid; grid-template-columns: 1.1fr 1fr 1.2fr; gap: 18px; margin: 18px 28px 0; padding: 16px 20px; background: #1e1032; border: 1px solid #5b3a8c; border-radius: 10px; }
+.dashCell { min-width: 0; }
+.dashLabel { margin: 0 0 6px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.8px; color: #b9a8d9; }
+.dashPct { margin: 0 0 8px; }
+.dashPct #dashPercent { font-size: 44px; font-weight: bold; color: #ffb347; line-height: 1; }
+.dashPct #dashCount { font-size: 16px; color: #e8ddff; margin-left: 8px; }
+.dashBar { height: 12px; background: #3a2a55; border-radius: 6px; overflow: hidden; }
+.dashBar #dashFill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff2e88, #ffb347); transition: width 0.2s; }
+.dashHours { margin: 8px 0 0; font-size: 13.5px; color: #d9c8f5; }
+.gradeRow { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.gradeLabel { width: 108px; flex-shrink: 0; font-size: 13.5px; color: #e8ddff; }
+.gradeBar { flex: 1; height: 10px; background: #3a2a55; border-radius: 5px; overflow: hidden; }
+.gradeFill { height: 100%; width: 0%; }
+.gradeFill.platinum { background: #e8f4ff; }
+.gradeFill.gold { background: #ffd700; }
+.gradeFill.silver { background: #d7d7d7; }
+.gradeFill.bronze { background: #cd7f32; }
+#nextFive { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.5; }
+#nextFive li { margin-bottom: 4px; }
 section#roadmap, aside#missable { margin: 18px 28px; padding: 14px 18px; border-radius: 10px; }
 section#roadmap { background: #1e1032; border: 1px solid #5b3a8c; }
 aside#missable { background: #33131f; border: 2px solid #ff2e88; }
 h2 { margin: 0 0 8px; font-size: 21px; }
 .sectionNote { margin: 4px 0 0; color: #d9c8f5; font-size: 14px; line-height: 1.45; }
-#roadmapStages { margin: 10px 0 0; padding-left: 22px; }
-#roadmapStages li { margin-bottom: 10px; line-height: 1.45; }
-#roadmapStages strong { color: #ffb347; }
+/* Phased roadmap: one card per phase, click to filter the checklist. */
+#phaseCards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+.phaseCard { background: #14091f; border: 1px solid #7a5aa8; border-radius: 10px; padding: 12px 14px; cursor: pointer; }
+.phaseCard:hover { border-color: #ffb347; }
+.phaseCard h3 { margin: 0 0 6px; font-size: 17px; color: #ffb347; }
 .stageCount { color: #b9a8d9; font-size: 13px; }
-.stageTrophies { color: #e8ddff; font-size: 14px; }
+.stageTrophies { color: #e8ddff; font-size: 13.5px; line-height: 1.5; margin-top: 8px; }
 #missableText { margin: 0; font-size: 15px; line-height: 1.5; }
 #controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0 28px 14px; padding: 12px 14px; background: #1e1032; border: 1px solid #5b3a8c; border-radius: 10px; }
 #controls label { font-size: 14px; }
@@ -43,17 +65,31 @@ article.trophy.missableCard { border-color: #ff2e88; }
 .badge.silver { background: #d7d7d7; color: #222; }
 .badge.bronze { background: #cd7f32; color: #fff; }
 .badge.kind { background: #3a2a55; color: #e8ddff; border: 1px solid #7a5aa8; }
+.badge.phase { background: #0d2b45; color: #bfe3ff; border: 1px solid #2e6ea8; }
+.badge.difficulty { background: #123f2e; color: #bfffd9; border: 1px solid #2ecc71; }
+.badge.time { background: #3a2a1a; color: #ffd9a0; border: 1px solid #ffb347; }
+.badge.route { background: #ffb347; color: #422d00; }
 .badge.missable { background: #ff2e88; color: #fff; }
 .badge.hiddenTag { background: #0d2b45; color: #bfe3ff; border: 1px solid #2e6ea8; }
 .guideBtn { margin-top: 10px; padding: 6px 10px; border-radius: 6px; border: 1px solid #7a5aa8; background: transparent; color: #ffb347; font-size: 13.5px; cursor: pointer; }
 .guideBox { margin-top: 10px; padding: 10px; background: #14091f; border-left: 3px solid #ffb347; border-radius: 0 6px 6px 0; }
 .guideBox p { margin: 0 0 8px; font-size: 14.5px; line-height: 1.55; }
 .guideBox .source { margin: 0; font-size: 12.5px; color: #b9a8d9; }
+/* Per-trophy missable check inside the open guide. */
+.missableDetail { margin-top: 10px; padding: 9px 10px; border-radius: 6px; font-size: 13.5px; line-height: 1.5; }
+.missableDetail.safe { background: #122b1c; border: 1px solid #2ecc71; }
+.missableDetail.warn { background: #33131f; border: 1px solid #ff2e88; }
+.missableDetail strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+.missableDetail p { margin: 0; }
 .spoilerMask { color: #b9a8d9; font-style: italic; }
 footer#sources { margin: 0 28px 28px; padding: 14px 18px; background: #1e1032; border: 1px solid #5b3a8c; border-radius: 10px; font-size: 14px; line-height: 1.55; }
 footer#sources a { color: #7fd4ff; }
 .judgeNote { color: #ffb347; }
+@media (max-width: 900px) {
+  section#dashboard { grid-template-columns: 1fr; }
+  #phaseCards { grid-template-columns: 1fr; }
+}
 @media (max-width: 700px) {
-  header#top, section#roadmap, aside#missable, #controls, main#trophyList, footer#sources { margin-left: 12px; margin-right: 12px; }
+  header#top, section#dashboard, section#roadmap, aside#missable, #controls, main#trophyList, footer#sources { margin-left: 12px; margin-right: 12px; }
   h1 { font-size: 26px; }
 }
